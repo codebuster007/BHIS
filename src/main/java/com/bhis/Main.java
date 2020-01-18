@@ -73,22 +73,22 @@ public class Main extends Application {
 
 
         // testing findCustomerById
-        Customer foundCustomer = customerService.findCustomerById(customerList.get(0).getCustomerId());
+        Customer foundCustomer = customerService.getCustomerById(customerList.get(0).getCustomerId());
         System.out.println("After findCustomerById: " + foundCustomer);
 
-        Customer foundCustomer2 = customerService.findCustomerById("CUST-95bhf2");
+        Customer foundCustomer2 = customerService.getCustomerById("CUST-95bhf2");
         System.out.println("After findCustomerById with wrong Id: " + foundCustomer2);
 
         System.out.println("\n");
 
 
         // testing findCustomerByName
-        List<Customer> customerByName = customerService.findCustomerByName(customerList.get(2).getFirstName());
+        List<Customer> customerByName = customerService.getCustomerByName(customerList.get(2).getFirstName());
         System.out.println("After findCustomerByName: ");
         printDatabase(customerByName);
         System.out.println("\n");
 
-        List<Customer> customerByName2 = customerService.findCustomerByName("David Beckham");
+        List<Customer> customerByName2 = customerService.getCustomerByName("David Beckham");
         System.out.println("After findCustomerById with wrong name: ");
         printDatabase(customerByName2);
         System.out.println("\n");

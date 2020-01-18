@@ -19,7 +19,7 @@ public class Utils {
     private static final int ID_LENGTH = 6;
     public static final String CUSTOMER_PREPEND = "CUST";
     public static final String BIKE_PREPEND = "BIKE";
-    public static final String HIRE_TRANSACTION_PREPEND = "HTRN";
+    public static final String HIRE_PREPEND = "HIRE";
 
 
     public static String generateRandomString(String prepend) {
@@ -32,8 +32,12 @@ public class Utils {
         return new String(returnValue);
     }
 
-    public static String generateRandomInteger() {
+    public static String generateRandomInteger(String prepend) {
         StringBuilder returnValue = new StringBuilder(ID_LENGTH);
+
+        if(!prepend.isEmpty()){
+            returnValue.append(prepend).append("-");
+        }
 
         IntStream.range(0, ID_LENGTH).mapToObj(n -> NUMBERS.charAt(RANDOM.nextInt(NUMBERS.length()))).forEach(returnValue::append);
 

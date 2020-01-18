@@ -19,12 +19,12 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer findCustomerById(String customerId) {
+    public Customer getCustomerById(String customerId) {
         return customerRepo.findById(customerId);
     }
 
     @Override
-    public List<Customer> findCustomerByName(String name) {
+    public List<Customer> getCustomerByName(String name) {
         return customerRepo.findByName(name);
     }
 

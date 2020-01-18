@@ -33,7 +33,7 @@ public class CustomerDaoImpl implements CustomerDao{
         List<Customer> customerList = CustomerDatabase.getInstance().getCustomerList();
 
         return customerList.stream()
-                .filter( cus -> cus.getFirstName().equals(name) || cus.getLastName().equals(name))
+                .filter( customer -> customer.getFirstName().equals(name) || customer.getLastName().equals(name))
                 .collect(Collectors.toList());
     }
 
@@ -58,7 +58,6 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public boolean deleteCustomer(Customer customer) {
-
         CustomerDatabase.getInstance().getCustomerList().remove(customer);
 
         return true;

@@ -18,5 +18,22 @@ public class Payment implements Serializable {
     private static final long serialVersionUID = -3019238620570352574L;
 
     private Date payDate;
-    private HireTransaction payment;
+    private HireRecord payment;
+
+    @Setter(AccessLevel.NONE)
+    private double totalAmountPaid;
+
+
+    /**
+     * set the value of the total amount paid for a hire transaction
+     */
+    private void setTotalAmountPaid(){
+        totalAmountPaid = payment.getAmountDue() + payment.getAmountHoursLate();
+    }
+
+    public double getTotalAmountPaid(){
+        setTotalAmountPaid();
+
+        return totalAmountPaid;
+    }
 }

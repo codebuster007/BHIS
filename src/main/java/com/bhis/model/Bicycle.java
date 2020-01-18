@@ -16,17 +16,18 @@ public class Bicycle implements Serializable {
     private String bicycleNo;
     private String bicycleMake;
     private String bicycleModel;
-    private BikeType bicycleType;
+    private BicycleType bicycleType;
     private String bicycleColor;
-    private BikeSize bicycleSize;
+    private BicycleSize bicycleSize;
     private int bicycleQuantity;
     private double bicycleDeposit;
     private double bicycleHourlyRate;
     private double bicycleDailyRate;
+    private double lateHourlyRate; // late return hourly rate
 
 
     @Getter(AccessLevel.NONE)
-    public enum BikeType{
+    public enum BicycleType{
         STANDARD_HYBRID_BIKE,
         SPORTY_MOUNTAIN_BIKE,
         ADULT_ELECTRIC_BIKE,
@@ -36,7 +37,7 @@ public class Bicycle implements Serializable {
 
     @Getter(AccessLevel.NONE)
     @RequiredArgsConstructor
-    public enum BikeSize{
+    public enum BicycleSize{
 
         S("SMALL"),
         M("MEDIUM"),
