@@ -18,7 +18,7 @@ import static com.bhis.model.Customer.Gender.FEMALE;
 import static com.bhis.model.Customer.Gender.MALE;
 import static com.bhis.util.Utils.CUSTOMER_PREPEND;
 
-public class Main extends Application {
+public class BHIS extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -31,7 +31,7 @@ public class Main extends Application {
 
         primaryStage.show();
 
-        dummyTest();
+        dummyCustomerTest();
     }
 
 
@@ -39,7 +39,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    public void dummyTest(){
+    public void dummyCustomerTest(){
         Utils.generateDummyData();
 
 

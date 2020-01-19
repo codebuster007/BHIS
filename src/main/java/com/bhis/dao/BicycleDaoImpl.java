@@ -1,10 +1,8 @@
 package com.bhis.dao;
 
 import com.bhis.database.BicycleDatabase;
-import com.bhis.database.CustomerDatabase;
 import com.bhis.model.Bicycle;
 import com.bhis.model.Bicycle.BicycleType;
-import com.bhis.model.Customer;
 
 import java.util.List;
 import java.util.stream.Collectors;
