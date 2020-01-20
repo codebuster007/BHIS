@@ -22,16 +22,18 @@ public class BHIS extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Utils.generateBicycleDummyData();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/sample.fxml"));
+        loader.setLocation(getClass().getResource("/view/mainPage.fxml"));
 
         Parent root = loader.load();
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 1000, 800));
 
         primaryStage.show();
 
-        dummyCustomerTest();
+//        dummyCustomerTest();
+
     }
 
 
@@ -40,7 +42,7 @@ public class BHIS extends Application {
     }
 
     public void dummyCustomerTest(){
-        Utils.generateDummyData();
+        Utils.generateCustomerDummyData();
 
 
         // Printing test data

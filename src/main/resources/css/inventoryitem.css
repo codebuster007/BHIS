@@ -1,0 +1,20 @@
+.inventory-item{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(three-pass-box, #93948d, 10, 0, 0, 0);
+}
+
+.inventory-item:hover {
+    -fx-effect: dropshadow(three-pass-box, #373836, 10, 0, 0, 0);
+}
+
+.edit-button .jfx-rippler{
+    -fx-text-fill: 373836;
+    -jfx-rippler-fill: #06A7F9;
+}
+
+.delete-button .jfx-rippler{
+    -fx-text-fill: 373836;
+    -jfx-rippler-fill: RED;
+}

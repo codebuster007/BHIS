@@ -1,14 +1,19 @@
 package com.bhis.util;
 
+import com.bhis.database.BicycleDatabase;
 import com.bhis.database.CustomerDatabase;
+import com.bhis.model.Bicycle;
 import com.bhis.model.Customer;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import static com.bhis.model.Bicycle.BicycleSize.*;
+import static com.bhis.model.Bicycle.BicycleType.*;
 import static com.bhis.model.Customer.Gender.FEMALE;
 import static com.bhis.model.Customer.Gender.MALE;
 
@@ -44,7 +49,82 @@ public class Utils {
         return new String(returnValue);
     }
 
-    public static void generateDummyData(){
+
+    public static void generateBicycleDummyData(){
+        List<Bicycle> bicycleList = new ArrayList<>();
+        bicycleList.add(new Bicycle()
+                .setBicycleImage("/images/bicycle_img.png")
+            .setBicycleMake("Tesla")
+            .setBicycleSize(Arrays.asList(S))
+                .setBicycleColor(Arrays.asList("PURPLE", "BLUE", "BLACK"))
+            .setBicycleType(TANDEM_BIKE)
+            .setBicycleQuantity(10)
+            .setBicycleModel("C-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList(XL))
+                .setBicycleColor(Arrays.asList("PURPLE", "BLUE", "BLACK"))
+                .setBicycleType(SPORTY_MOUNTAIN_BIKE)
+                .setBicycleQuantity(10)
+                .setBicycleModel("Z-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList(S, M))
+                .setBicycleColor(Arrays.asList("PURPLE", "BLUE", "BLACK"))
+                .setBicycleType(STANDARD_HYBRID_BIKE)
+                .setBicycleQuantity(10)
+                .setBicycleModel("X-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList(S, M, L))
+                .setBicycleColor(Arrays.asList("PURPLE", "BLUE", "BLACK"))
+                .setBicycleType(TANDEM_BIKE)
+                .setBicycleQuantity(10)
+                .setBicycleModel("E-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList(S, M, XL))
+                .setBicycleColor(Arrays.asList("BLUE", "PINK"))
+                .setBicycleType(KIDS_BIKE)
+                .setBicycleQuantity(0)
+                .setBicycleModel("A-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList(S, M))
+                .setBicycleColor(Arrays.asList("PURPLE", "BLUE", "BLACK"))
+                .setBicycleType(ADULT_ELECTRIC_BIKE)
+                .setBicycleQuantity(10)
+                .setBicycleModel("F-Class Grade"));
+
+        bicycleList.add(new Bicycle()
+                .setBicycleNo(Utils.generateRandomInteger(BIKE_PREPEND))
+                .setBicycleMake("BMW")
+                .setBicycleImage("/images/bicycle_img.png")
+                .setBicycleSize(Arrays.asList( M, XL))
+                .setBicycleColor(Arrays.asList("BLUE", "PINK"))
+                .setBicycleType(KIDS_BIKE)
+                .setBicycleQuantity(0)
+                .setBicycleModel("A-Class Grade"));
+
+        BicycleDatabase.getInstance().setBicycleList(bicycleList);
+    }
+
+    public static void generateCustomerDummyData(){
 
        List<Customer> customerList = new ArrayList<>();
 

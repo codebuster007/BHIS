@@ -1,0 +1,190 @@
+
+/*.jfx-list-cell {*/
+
+/*    -fx-background-insets: 0.0;*/
+
+/*    -fx-text-fill: GREY;*/
+/*    -fx-font-size: 13pt;*/
+/*}*/
+
+.jfx-list-view {
+
+    -fx-background-insets: 0.0;
+
+    -jfx-cell-horizontal-margin: 0.0;
+
+    -jfx-cell-vertical-margin: 5.0;
+
+    -jfx-vertical-gap: 10.0;
+
+    -jfx-expanded: false;
+
+}
+
+
+.jfx-list-cell:odd,
+
+.jfx-list-cell:even {
+    -fx-background-color: WHITE;
+    -fx-background: -fx-control-inner-background-alt ;
+
+}
+
+/*!* Main Body styling *!*/
+/*.mainBody{*/
+/*    -fx-background-color: #d7d8d9;*/
+/*}*/
+
+.anchorPane{
+    -fx-background-color: WHITE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+
+    -fx-font-family: "SansSerif";
+}
+
+
+
+/*.jfx-list-cell:filled:selected {*/
+/*    -fx-background: -fx-control-inner-background ;*/
+/*    -fx-background-color: -fx-background ;*/
+/*    -fx-background-insets: 0, 0 0 1 0;*/
+
+/*}*/
+
+
+
+.jfx-list-cell .jfx-rippler {
+
+    -jfx-rippler-fill: WHITE;
+
+}
+
+
+
+/*.jfx-list-cell:odd:selected > .jfx-rippler > StackPane,*/
+
+/*.jfx-list-cell:even:selected > .jfx-rippler > StackPane {*/
+
+/*    -fx-background-color: rgba(6, 167, 249, 0.5)*/
+
+/*}*/
+
+
+
+
+
+
+/*.custom-jfx-list-view .jfx-list-cell:odd:selected > .jfx-rippler > StackPane,*/
+
+/*.custom-jfx-list-view .jfx-list-cell:even:selected > .jfx-rippler > StackPane {*/
+
+/*    -fx-background-color: rgba(255, 0, 0, 0.2);*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view {*/
+
+/*    -fx-background-insets: 0.0;*/
+
+/*    -jfx-cell-horizontal-margin: 0.0;*/
+
+/*    -jfx-cell-vertical-margin: 5.0;*/
+
+/*    -jfx-expanded: false;*/
+
+/*    -fx-max-width: 200.0px;*/
+
+/*    !* important to hide the list change of height *!*/
+
+/*    -fx-background-color: TRANSPARENT;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view .jfx-rippler {*/
+
+/*    -jfx-rippler-fill: RED;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view1 {*/
+
+/*    -jfx-vertical-gap: 10.0;*/
+
+/*    -fx-pref-width: 150px;*/
+
+/*    -fx-background-color: transparent;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view-icon,*/
+
+/*.jfx-list-cell:selected .label .custom-jfx-list-view-icon {*/
+
+/*    !*-fx-text-fill: #5264AE;*!*/
+
+/*    -fx-fill: #06A7F9;*/
+
+/*    -fx-padding: 0.0 10.0 0.0 5.0;*/
+
+/*    -fx-cursor: hand;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view-icon-container {*/
+
+/*    -fx-pref-width: 40px;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view .sublist-item {*/
+
+/*    -fx-border-color: #e0e0e0;*/
+/*    -fx-border-width: 1 0 1 0;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view .jfx-list-cell .sublist-header > .drop-icon {*/
+
+/*    -fx-background-color: GRAY;*/
+
+/*}*/
+
+
+
+/*.custom-jfx-list-view .jfx-list-cell:filled:hover .sublist-header > .drop-icon {*/
+
+/*    -fx-background-color: BLACK;*/
+
+/*}*/
+
+
+/*!* Main Body styling *!*/
+/*.mainBody{*/
+/*    -fx-background-color: #d7d8d9;*/
+/*}*/
+
+/*.anchorPane{*/
+/*    -fx-background-color: WHITE;*/
+/*    -fx-border-radius: 5px;*/
+/*    -fx-background-radius: 5px;*/
+
+/*    -fx-font-family: "SansSerif";*/
+/*}*/
+/*.sideMenu{*/
+/*    -fx-background-color: #d7d8d9;*/
+/*}*/

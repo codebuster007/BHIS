@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Accessors(chain = true)
@@ -17,8 +18,9 @@ public class Bicycle implements Serializable {
     private String bicycleMake;
     private String bicycleModel;
     private BicycleType bicycleType;
-    private String bicycleColor;
-    private BicycleSize bicycleSize;
+    private List<String> bicycleColor;
+    private String bicycleImage;
+    private List<BicycleSize> bicycleSize;
     private int bicycleQuantity;
     private double bicycleDeposit;
     private double bicycleHourlyRate;
@@ -27,12 +29,16 @@ public class Bicycle implements Serializable {
 
 
     @Getter(AccessLevel.NONE)
+    @RequiredArgsConstructor
     public enum BicycleType{
-        STANDARD_HYBRID_BIKE,
-        SPORTY_MOUNTAIN_BIKE,
-        ADULT_ELECTRIC_BIKE,
-        KIDS_BIKE,
-        TANDEM_BIKE
+        STANDARD_HYBRID_BIKE("STANDARD HYBRID"),
+        SPORTY_MOUNTAIN_BIKE("SPORTY MOUNTAIN"),
+        ADULT_ELECTRIC_BIKE("ADULT ELECTRIC"),
+        KIDS_BIKE("KIDS"),
+        TANDEM_BIKE("TANDEM");
+
+        @Getter
+        @NonNull private String bicycleType;
     }
 
     @Getter(AccessLevel.NONE)
