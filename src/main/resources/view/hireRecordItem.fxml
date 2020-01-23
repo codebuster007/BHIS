@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="290.0" prefWidth="530.0" styleClass="inventory-item"
+            stylesheets="/css/inventoryitem.css" xmlns="http://javafx.com/javafx/8.0.171">
+    <bottom>
+        <AnchorPane prefHeight="120.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <Label layoutX="14.0" layoutY="14.0" text="Start Date" AnchorPane.leftAnchor="14.0"
+                   AnchorPane.topAnchor="14.0"/>
+            <Label layoutX="525.0" layoutY="14.0" text="End Date" AnchorPane.rightAnchor="14.0"
+                   AnchorPane.topAnchor="14.0"/>
+            <Label fx:id="startDate" layoutX="48.0" layoutY="35.0" text="1st Jan 2020, 9am"
+                   AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="48.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label fx:id="endDate" layoutX="445.0" layoutY="35.0" text="2nd Jan 2020, 2pm"
+                   AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <JFXProgressBar fx:id="hireProgress" layoutX="30.0" layoutY="69.0" secondaryProgress="0.0"
+                            AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                            AnchorPane.topAnchor="69.0"/>
+            <Label fx:id="totalDue" layoutX="438.0" layoutY="83.0" text="\$38.99" AnchorPane.bottomAnchor="7.0"
+                   AnchorPane.rightAnchor="10.0">
+                <font>
+                    <Font name="System Bold" size="20.0"/>
+                </font>
+            </Label>
+            <Label fx:id="hireDuration" alignment="CENTER" layoutX="239.0" layoutY="25.0" prefHeight="21.0"
+                   prefWidth="79.0" text="2 DAYS" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="193.0"
+                   AnchorPane.topAnchor="25.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label fx:id="hireStatus" layoutX="234.0" layoutY="82.0" text="Ongoing..." textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <JFXCheckBox fx:id="depositRefunded" layoutX="14.0" layoutY="85.0" text="Deposit Refunded?"
+                         textAlignment="CENTER"/>
+        </AnchorPane>
+    </bottom>
+    <center>
+        <Line endX="-100.0" endY="150.0" startX="-100.0" stroke="#bcbcbc" BorderPane.alignment="CENTER"/>
+    </center>
+    <left>
+        <AnchorPane prefHeight="280.0" prefWidth="283.0" BorderPane.alignment="CENTER">
+            <Label layoutX="14.0" layoutY="14.0" text="Hire ID" AnchorPane.leftAnchor="15.0"
+                   AnchorPane.topAnchor="17.0"/>
+            <Label fx:id="hireId" layoutX="67.0" layoutY="17.0" text="HIRE-AYU2E8" AnchorPane.leftAnchor="80.0"
+                   AnchorPane.topAnchor="17.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" text="Bicycle Details" AnchorPane.leftAnchor="14.0"
+                   AnchorPane.topAnchor="44.0">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="78.0" text="No" AnchorPane.leftAnchor="30.0"/>
+            <Label fx:id="bikeId" layoutX="77.0" layoutY="79.0" text="BIKE-983412" AnchorPane.leftAnchor="77.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="106.0" text="Make" AnchorPane.leftAnchor="30.0"/>
+            <Label fx:id="bikeMake" layoutX="77.0" layoutY="107.0" text="BENZ" AnchorPane.leftAnchor="77.0">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <JFXButton fx:id="moreBtn" layoutX="207.0" layoutY="41.0" text="MORE" AnchorPane.leftAnchor="207.0"/>
+            <Label layoutX="30.0" layoutY="133.0" text="Type"/>
+            <Label fx:id="bikeType" layoutX="78.0" layoutY="134.0" text="TANDEM">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="280.0" prefWidth="252.0" BorderPane.alignment="CENTER">
+            <Label layoutX="15.0" layoutY="17.0" text="Customer Details" AnchorPane.leftAnchor="15.0"
+                   AnchorPane.topAnchor="17.0">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="47.0" text="ID"/>
+            <Label fx:id="custId" layoutX="55.0" layoutY="47.0" text="CUST-E7YH4W">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="74.0" text="Name"/>
+            <Label fx:id="custName" layoutX="91.0" layoutY="74.0" text="John Doe">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="101.0" text="Email"/>
+            <Label fx:id="custEmail" layoutX="92.0" layoutY="101.0" text="johndoe@gmail.com">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="126.0" text="Gender"/>
+            <Label fx:id="custGender" layoutX="92.0" layoutY="126.0" text="MALE">
+                <font>
+                    <Font name="System Bold" size="15.0"/>
+                </font>
+            </Label>
+            <JFXCheckBox fx:id="bikeRetured" layoutX="15.0" layoutY="-10.0" text="Bicycle Retured?"
+                         textAlignment="CENTER" AnchorPane.topAnchor="-2.0"/>
+        </AnchorPane>
+    </right>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+</BorderPane>

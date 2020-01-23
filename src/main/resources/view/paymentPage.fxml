@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../css/customerPage.css" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.bhis.controllers.PaymentController">
+    <VBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+
+        <HBox alignment="CENTER">
+
+            <Label styleClass="title-label" text="PAYMENTS">
+                <HBox.margin>
+                    <Insets left="10.0"/>
+                </HBox.margin>
+            </Label>
+
+            <Label fx:id="treeTableViewCount" minWidth="240.0" styleClass="title-label"/>
+
+            <JFXButton fx:id="treeTableViewAdd" buttonType="FLAT" text="+"/>
+
+            <JFXButton fx:id="treeTableViewRemove" buttonType="FLAT" text="-"/>
+
+            <StackPane HBox.hgrow="ALWAYS">
+
+                <StackPane maxWidth="200" StackPane.alignment="CENTER_RIGHT">
+
+                    <JFXTextField fx:id="searchField" promptText="Search..."/>
+
+                </StackPane>
+
+            </StackPane>
+
+        </HBox>
+        <JFXTreeTableView fx:id="paymentTable" VBox.vgrow="ALWAYS">
+            <columns>
+
+                <JFXTreeTableColumn fx:id="paymentId" minWidth="250" text="Payment ID"/>
+
+                <JFXTreeTableColumn fx:id="customerId" minWidth="250" text="Customer ID"/>
+
+                <JFXTreeTableColumn fx:id="customerName" minWidth="250" text="Customer Name"/>
+
+                <JFXTreeTableColumn fx:id="bicycleId" minWidth="250" text="Bicycle No"/>
+
+                <JFXTreeTableColumn fx:id="bicycleType" minWidth="250" text="Bicycle Type"/>
+
+                <JFXTreeTableColumn fx:id="hireDuration" minWidth="250" text="Hire Duration"/>
+
+                <JFXTreeTableColumn fx:id="payDate" minWidth="250" text="Payment Date"/>
+
+                <JFXTreeTableColumn fx:id="hoursLate" minWidth="250" text="Hours Late"/>
+
+                <JFXTreeTableColumn fx:id="amountHoursLate" minWidth="250" text="Late Return Amount"/>
+
+                <JFXTreeTableColumn fx:id="amountDeposit" minWidth="250" text="Amount Deposited"/>
+
+                <JFXTreeTableColumn fx:id="amountDue" minWidth="250" text="Amount Paid"/>
+
+                <JFXTreeTableColumn fx:id="totalPaidNoDeposit" minWidth="200" text="Amount Paid No Deposit"/>
+
+                <JFXTreeTableColumn fx:id="totalPaid" minWidth="250" text="Total Amount Paid (+ Hours Late)"/>
+            </columns>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </JFXTreeTableView>
+    </VBox>
+
+</AnchorPane>

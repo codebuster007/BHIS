@@ -16,8 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BicycleItemController extends GridPane implements Initializable
-{
+public class InventoryItemController extends GridPane implements Initializable {
     @FXML
     public Label size;
     @FXML
@@ -39,21 +38,19 @@ public class BicycleItemController extends GridPane implements Initializable
 
     private Bicycle bicycle;
 
-    public BicycleItemController(Bicycle item)
-    {
+    public InventoryItemController(Bicycle item) {
         this.bicycle = item;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/inventoryGridCellItem.fxml"));
         fxmlLoader.setController(this);
 
         try {
             fxmlLoader.load();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public HBox getBox() {
+    public HBox getRoot() {
         return hBox;
     }
 

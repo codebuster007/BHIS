@@ -2,6 +2,8 @@ package com.bhis.controllers;
 
 import com.bhis.database.BicycleDatabase;
 import com.bhis.model.Bicycle;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,16 +23,21 @@ public class InventoryListController implements Initializable {
     @FXML
     public AnchorPane listAnchorPane;
 
+    @FXML
+    public JFXButton addNewBicycle;
+
+    @FXML
+    public JFXTextField searchField;
+
     private Set<String> stringSet;
 
     private ObservableList<Bicycle> observableList = FXCollections.observableArrayList();
 
 
-    public void setListView()
-    {
+    public void setListView() {
         observableList.setAll(BicycleDatabase.getInstance().getBicycleList());
         bicycleGridView.setItems(observableList);
-        bicycleGridView.setCellFactory(param -> new GridViewCell());
+        bicycleGridView.setCellFactory(param -> new InventoryItemGridViewCell());
     }
 
     @Override

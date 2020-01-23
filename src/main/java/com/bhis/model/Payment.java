@@ -1,89 +1,176 @@
 package com.bhis.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.property.*;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Payment implements Serializable{
+public class Payment extends RecursiveTreeObject<Payment> implements Serializable {
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     private static final long serialVersionUID = 5545483345676547559L;
 
     @Setter(AccessLevel.NONE)
-    private String paymentId;
+    private StringProperty paymentId;
 
     @Getter(AccessLevel.NONE)
-    private HireRecord transaction;
+    private Property<HireRecord> transaction;
 
     @Setter(AccessLevel.NONE)
-    private double totalAmountPaid;
+    private Property<Double> totalAmountPaid;
 
     @Setter(AccessLevel.NONE)
-    private Date payDate;
+    private Property<Double> totalAmountPaidNoDeposit;
 
-    private void setPaymentId(){
-        this.paymentId = transaction.getHireId();
+    @Setter(AccessLevel.NONE)
+    private Property<LocalDateTime> payDate;
+
+    public Payment() {
+        paymentId = new SimpleStringProperty();
+        transaction = new SimpleObjectProperty<>();
+        totalAmountPaid = new SimpleObjectProperty<>();
+        totalAmountPaidNoDeposit = new SimpleObjectProperty<>();
+        payDate = new SimpleObjectProperty<>();
     }
 
-    public Customer getCustomer(){
-        return transaction.getCustomerHiring();
+    private void setPaymentId() {
+        this.paymentId.set(transaction.getValue().getHireId());
     }
 
-    public Bicycle getBicycle(){
-        return transaction.getBicycleHired();
+    public String getPaymentId() {
+        setPaymentId();
+
+        return paymentId.get();
     }
 
-    public double getAmountDue(){
-        return transaction.getAmountDue();
+    public Payment setTransaction(HireRecord transaction) {
+        this.transaction.setValue(transaction);
+        return this;
     }
 
-    public double getAmountHoursLate(){
-        return transaction.getAmountHoursLate();
+    public StringProperty paymentIdProperty() {
+        return paymentId;
     }
 
-    public int getHoursLate(){
-        return transaction.getHoursLate();
+    public Customer getCustomer() {
+        return transaction.getValue().getCustomerHiring();
     }
 
-    public String getHireDuration(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        Date hireDate = transaction.getStartDate();
-        Date returnDate = transaction.getReturnDate();
-
-        long diffInMillis = Math.abs(returnDate.getTime() - hireDate.getTime());
-        long diff = TimeUnit.HOURS.convert(diffInMillis, TimeUnit.MILLISECONDS);
-
-        if(diff < 24){
-            return String.format("%s Hours", diff);
-        }
-
-        diff = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
-        return String.format("%s %s", diff, diff > 1 ? "Days" : "Day");
+    public Property<String> customerIdProperty() {
+        return new SimpleObjectProperty<>(transaction.getValue().getCustomerHiring().getCustomerId());
     }
 
-    private void setPayDate(){
-        payDate = transaction.getStartDate();
+    public Property<String> customerNameProperty() {
+        return new SimpleObjectProperty<>(transaction.getValue().getCustomerHiring().getFirstName() + " "
+                + transaction.getValue().getCustomerHiring().getLastName());
     }
+
+
+    public Bicycle getBicycle() {
+        return transaction.getValue().getBicycleHired();
+    }
+
+    public Property<String> bicycleIdProperty() {
+        return new SimpleObjectProperty<>(transaction.getValue().getBicycleHired().getBicycleNo());
+    }
+
+    public Property<String> bicycleTypeProperty() {
+        return new SimpleObjectProperty<>(transaction.getValue().getBicycleHired().getBicycleType().getBicycleType());
+    }
+
+    public double getAmountDue() {
+        return transaction.getValue().getAmountDue();
+    }
+
+    public DoubleProperty amountDueProperty() {
+        return new SimpleDoubleProperty(transaction.getValue().getAmountDue());
+    }
+
+    public double getDeposit() {
+        return transaction.getValue().getBicycleDeposit();
+    }
+
+    public DoubleProperty depositProperty() {
+        return new SimpleDoubleProperty(transaction.getValue().getBicycleDeposit());
+    }
+
+    public double getAmountHoursLate() {
+        return transaction.getValue().getAmountHoursLate();
+    }
+
+    public DoubleProperty amountHoursLateProperty() {
+        return new SimpleDoubleProperty(transaction.getValue().getAmountHoursLate());
+    }
+
+    public int getHoursLate() {
+        return transaction.getValue().getHoursLate();
+    }
+
+    public IntegerProperty hoursLateProperty() {
+        return new SimpleIntegerProperty(transaction.getValue().getHoursLate());
+    }
+
+    public String getHireDuration() {
+
+        return transaction.getValue().getHireDuration();
+    }
+
+    public StringProperty hireDurationProperty() {
+        return new SimpleStringProperty(transaction.getValue().getHireDuration());
+    }
+
+    private void setPayDate() {
+        payDate.setValue(transaction.getValue().getStartDate());
+    }
+
+    public LocalDateTime getPayDate() {
+        setPayDate();
+
+        return payDate.getValue();
+    }
+
+    public StringProperty payDateProperty() {
+        return new SimpleStringProperty(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a ").format(payDate.getValue()));
+    }
+
     /**
      * set the value of the total amount paid for a hire transaction
      */
-    private void setTotalAmountPaid(){
-        totalAmountPaid = getAmountDue() + getAmountHoursLate();
+    private void setTotalAmountPaid() {
+        totalAmountPaid.setValue(getAmountDue() + getAmountHoursLate());
     }
 
-    public double getTotalAmountPaid(){
+    public double getTotalAmountPaid() {
         setTotalAmountPaid();
 
+        return totalAmountPaid.getValue();
+    }
+
+    public Property<Double> totalAmountPaidProperty() {
         return totalAmountPaid;
+    }
+
+    private void setTotalAmountPaidNoDeposit() {
+        if (transaction.getValue().isDepositRefunded())
+            totalAmountPaidNoDeposit.setValue(getTotalAmountPaid() - getDeposit());
+        totalAmountPaidNoDeposit.setValue(getTotalAmountPaid());
+    }
+
+    public double getTotalAmountPaidNoDeposit() {
+        setTotalAmountPaidNoDeposit();
+
+        return totalAmountPaidNoDeposit.getValue();
+    }
+
+    public Property<Double> totalAmountPaidNoDepositProperty() {
+        return totalAmountPaidNoDeposit;
     }
 }

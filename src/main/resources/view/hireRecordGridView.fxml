@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.GridView?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="listAnchorPane" prefHeight="800.0" prefWidth="696.0"
+            stylesheets="/css/inventoryList.css" xmlns="http://javafx.com/javafx/8.0.171">
+    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0">
+        <bottom>
+            <GridView fx:id="hireRecordGridView" cellHeight="288" cellWidth="531" horizontalCellSpacing="10.0"
+                      prefHeight="800.0" prefWidth="696.0" styleClass="jfx-list-view" verticalCellSpacing="10.0"
+                      BorderPane.alignment="CENTER"/>
+        </bottom>
+        <top>
+            <AnchorPane prefHeight="133.0" prefWidth="696.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label layoutX="205.0" layoutY="47.0" text="Hire Transactions" textFill="#6b6868"
+                           AnchorPane.topAnchor="47.0">
+                        <font>
+                            <Font name="System Bold" size="40.0"/>
+                        </font>
+                    </Label>
+                    <Line endX="550.0" layoutX="120.0" layoutY="132.0" startX="-100.0" stroke="#b8b4b4"
+                          AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"/>
+
+                    <JFXButton fx:id="addNewHire" buttonType="FLAT" layoutX="446.0" layoutY="138.0" text="ADD"/>
+
+                    <StackPane HBox.hgrow="ALWAYS">
+
+                        <StackPane maxWidth="200" StackPane.alignment="CENTER_RIGHT"/>
+
+                    </StackPane>
+
+                    <JFXTextField fx:id="searchField" layoutX="515.0" layoutY="138.0" promptText="Search..."/>
+                </children>
+                <padding>
+                    <Insets bottom="20.0" top="20.0"/>
+                </padding>
+                <BorderPane.margin>
+                    <Insets top="100.0"/>
+                </BorderPane.margin>
+            </AnchorPane>
+        </top>
+    </BorderPane>
+</AnchorPane>

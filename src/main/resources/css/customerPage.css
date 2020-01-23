@@ -1,0 +1,127 @@
+/*
+
+ * TREE TABLE CSS
+
+ */
+
+.title-label {
+
+    -fx-font-size: 16.0px;
+
+    -fx-padding: 14.0px;
+
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.87);
+
+}
+
+
+.tree-table-view {
+
+    -fx-tree-table-color: rgba(6, 167, 249 0.2);
+
+    -fx-tree-table-rippler-color: rgba(6, 167, 249 0.4);
+
+}
+
+
+.tree-table-view .jfx-text-field {
+
+    -fx-background-color: transparent;
+
+}
+
+
+.animated-option-button {
+
+    -fx-background-color: #F1F1F1;
+
+    -fx-background-radius: 50px;
+
+    -fx-pref-height: 50px;
+
+    -fx-pref-width: 50px;
+
+    -fx-min-width: -fx-pref-width;
+
+    -fx-max-width: -fx-pref-width;
+
+    -fx-min-height: -fx-pref-height;
+
+    -fx-max-height: -fx-pref-height;
+
+    -jfx-button-type: RAISED;
+
+}
+
+.animated-option-button .jfx-rippler {
+
+    -jfx-rippler-fill: rgb(113, 118, 114);
+
+}
+
+.sub-icon {
+
+    -fx-fill: rgb(113, 118, 114);
+
+}
+
+
+.main-button {
+
+    -fx-pref-width: 60px;
+
+    -fx-background-color: #0F9D58;
+
+    -fx-background-radius: 60px;
+
+    -fx-pref-height: 60px;
+
+    -fx-min-width: -fx-pref-width;
+
+    -fx-max-width: -fx-pref-width;
+
+    -fx-min-height: -fx-pref-height;
+
+    -fx-max-height: -fx-pref-height;
+
+    -jfx-button-type: RAISED;
+
+}
+
+.main-button .jfx-rippler {
+
+    -jfx-rippler-fill: rgba(255, 255, 255, .87);
+
+}
+
+.main-icon {
+
+    -fx-fill: rgba(255, 255, 255, .87);
+
+}
+
+
+.animated-option-sub-button {
+
+    -fx-background-color: #06a7f9;
+
+}
+
+
+.animated-option-sub-button2 {
+
+    -fx-background-color: rgb(203, 104, 96);
+
+}
+
+
+.tree-table-view .menu-item:focused {
+
+    -fx-background-color: -fx-tree-table-color;
+}
+
+.tree-table-view .menu-item .label {
+
+    -fx-padding: 5 0 5 0;
+
+}
